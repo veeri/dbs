@@ -49,7 +49,7 @@ const Home = () => {
             </TableRow>
           </TableHead>
           <TableBody>
-            {userData.data && userData.data.length && userData.data.map((row) => (
+            {userData.data &&  userData.data.map((row) => (
               <TableRow
                 key={row.name}
                 sx={{ '&:last-child td, &:last-child th': { border: 0 } }}

@@ -80,6 +80,7 @@ class User {
             const {body} = req;
             conn = await pool.getConnection();
             const row = await conn.query(`select id, name, email, role from user where email='${body.email}' and password='${body.password}'`)
+            // const row = await conn.query(`select id, name, email, role from user where email='$1' and password=$2`, [body.email, body.password])
             if(row && row.length > 0){
                 res.send({
                     "error" : false,

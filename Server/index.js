@@ -1,18 +1,22 @@
 
 
 const express = require('express')
+const dotenv = require('dotenv')
+const env = process.env.NODE_ENV ? `.env.${process.env.NODE_ENV.trim()}` : ".env"
+dotenv.config({ path: env })
+
 const bodyParser = require('body-parser')
 const cors = require('cors')
 const router = require('./Router/index.js')
 
 
+
 const app = express();
 app.use(bodyParser.json())
-const port = 5000;
 app.use(cors());
 
 app.use(router);
 
-app.listen(port, () => {
-    console.log(`Now listening on port ${port}`); 
+app.listen(process.env.PORT, () => {
+    console.log(`Now listening on port ${process.env.PORT}`); 
 });
